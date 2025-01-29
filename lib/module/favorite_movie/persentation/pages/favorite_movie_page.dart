@@ -141,9 +141,7 @@ class _FavoriteMoviePageState extends State<FavoriteMoviePage>
   }
 
   void _handleDelete(BuildContext context, Movie movie) {
-    context
-        .read<FavoriteMovieBloc>()
-        .add(DeleteFavorite('${movie.idFirestore}'));
+    context.read<FavoriteMovieBloc>().add(DeleteFavorite('${movie.id}'));
     String msg = '${movie.title} dihapus dari Favorite';
     showSnackbar(context, msg);
   }

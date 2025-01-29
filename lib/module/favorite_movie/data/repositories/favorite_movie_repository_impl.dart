@@ -13,14 +13,16 @@ class FavoriteMovieRepositoryImpl implements FavoriteMovieRepository {
     return movieCollection.snapshots().map((snapshot) {
       return snapshot.docs
           .map((doc) => Movie.fromJson(doc.data() as Map<String, dynamic>)
-              .copyWith(idFirestore: doc.id))
+              //.copyWith(idFirestore: doc.id)
+              )
           .toList();
     });
   }
 
   @override
   Future<void> addFavoriteMovies(Movie movie) async {
-    await movieCollection.add(movie.toJson());
+    await movieCollection.doc('${movie.id}').set(movie.toJson());
+    // .add(movie.toJson());
   }
 
   @override
