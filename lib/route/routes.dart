@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../module/auth/persentation/page/check_auth_screen.dart';
+import '../module/auth/persentation/page/auth_screen.dart';
 
 import '../component/nav/navigasi.dart';
 import '../module/movie/presentation/pages/detail_page/movie_detail_page.dart';
@@ -17,4 +19,6 @@ final routes = {
       mv: args(context)?['mv'],
     );
   },
+  authRoute: (context) => const AuthScreen(),
+  checkAuthRoute: (context) => const CheckAuthScreen()
 };

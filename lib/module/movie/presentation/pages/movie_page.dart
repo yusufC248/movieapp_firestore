@@ -21,12 +21,14 @@ class MoviePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: bgColor,
         appBar: AppBar(
-            backgroundColor: Colors.black,
-            foregroundColor: Colors.amber,
-            title: const Text("Popular Movies"),
-            centerTitle: true,
-            bottom: searchMovieTextField(
-                (query) => movieBloc.add(FetchSearchMovies(query)), 75)),
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.amber,
+          title: const Text("Popular Movies"),
+          centerTitle: true,
+          bottom: searchMovieTextField(
+              (query) => movieBloc.add(FetchSearchMovies(query)), 75),
+          actions: [tombolLogout()],
+        ),
         body: MultiBlocListener(
           listeners: [errorListen(context)],
           child: BlocBuilder<MovieBloc, MovieState>(builder: (context, state) {

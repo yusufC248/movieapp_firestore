@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       providers: providers,
       child: MaterialApp(
           title: 'Movie Firestore',
-          initialRoute: navigasiRoute,
+          initialRoute: checkAuthRoute,
           routes: routes),
     );
   }

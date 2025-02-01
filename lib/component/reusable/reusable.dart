@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/injection/di.dart';
 
 Color bgColor = const Color(0xfffafbfe);
 
@@ -112,4 +115,12 @@ Widget errorDialog(BuildContext context, String error) {
       ),
     ],
   );
+}
+
+Widget tombolLogout() {
+  return IconButton(onPressed: _handleLogout, icon: Icon(Icons.logout));
+}
+
+void _handleLogout() {
+  getIt<FirebaseAuth>().signOut();
 }

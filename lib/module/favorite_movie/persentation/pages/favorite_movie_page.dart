@@ -2,14 +2,15 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../error_listen/favorite_error_listener.dart';
-import '../../../movie/domain/entities/movie.dart';
-import '../bloc/favorite_movie_bloc.dart';
-import '../bloc/favorite_movie_state.dart';
+
 import '../../../../component/reusable/reusable.dart';
+import '../../../movie/domain/entities/movie.dart';
 import '../../../movie/presentation/bloc/movie_state.dart';
 import '../../../movie/presentation/pages/movie_itm/movie_item.dart';
+import '../bloc/favorite_movie_bloc.dart';
 import '../bloc/favorite_movie_event.dart';
+import '../bloc/favorite_movie_state.dart';
+import '../error_listen/favorite_error_listener.dart';
 
 class FavoriteMoviePage extends StatefulWidget {
   const FavoriteMoviePage({super.key});
@@ -25,11 +26,7 @@ class _FavoriteMoviePageState extends State<FavoriteMoviePage>
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      if (mounted) {
-        _handleFetchData(context);
-      }
-    });
+
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -97,12 +94,14 @@ class _FavoriteMoviePageState extends State<FavoriteMoviePage>
 
   AppBar _appBar(Function(String value) onChange) {
     return AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.amber,
-        elevation: 0,
-        title: const Text("Favorite Movies"),
-        centerTitle: true,
-        bottom: searchMovieTextField(onChange, 75));
+      backgroundColor: Colors.black,
+      foregroundColor: Colors.amber,
+      elevation: 0,
+      title: const Text("Favorite Movies"),
+      centerTitle: true,
+      bottom: searchMovieTextField(onChange, 75),
+      actions: [tombolLogout()],
+    );
   }
 
   Widget _buildFavoriteMovieBody(BuildContext context, List<Movie> movies) {

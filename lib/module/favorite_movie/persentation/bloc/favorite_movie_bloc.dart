@@ -1,11 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/use_case/search_movies.dart';
+
+import '../../../movie/domain/entities/movie.dart';
 import '../../domain/use_case/delete_saved_favorite.dart';
 import '../../domain/use_case/read_favorite_movies.dart';
 import '../../domain/use_case/save_favorite_movie.dart';
+import '../../domain/use_case/search_movies.dart';
 import 'favorite_movie_event.dart';
 import 'favorite_movie_state.dart';
-import '../../../movie/domain/entities/movie.dart';
 
 class FavoriteMovieBloc extends Bloc<FavoriteMovieEvent, FavoriteMovieState> {
   final ReadFavoriteMovies readFavoriteMovies;

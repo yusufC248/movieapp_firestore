@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../reusable/reusable.dart';
 
 import '../../../module/movie/presentation/pages/movie_page.dart';
 import '../../module/favorite_movie/persentation/pages/favorite_movie_page.dart';
+import '../reusable/reusable.dart';
 
 class Navigasi extends StatefulWidget {
   const Navigasi({super.key});
