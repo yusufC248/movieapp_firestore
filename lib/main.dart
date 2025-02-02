@@ -14,7 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await dotenv.load(fileName: Endpoints.filename);
-  setupAllDI();
+  await setupAllDI();
   runApp(const MyApp());
 }
 

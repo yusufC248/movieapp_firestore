@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/auth_bloc.dart';
 import '../bloc/auth_event.dart';
-import '../../../../route/route_name.dart';
 
 import '../../../../component/reusable/reusable.dart';
 import '../bloc/auth_state.dart';
@@ -77,7 +76,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     _password.clear();
                     log('success ${state.userCredential.user?.email}');
                     setState(() {});
-                    Navigator.pushNamed(context, checkAuthRoute);
                   }
                 }, builder: (context, state) {
                   if (state is RegisterLoading) {

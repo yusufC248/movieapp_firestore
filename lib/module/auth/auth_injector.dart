@@ -8,10 +8,7 @@ import 'domain/use_case/register_usecase.dart';
 import 'persentation/bloc/auth_bloc.dart';
 
 Future<void> setupAuth() async {
-  final authInit = FirebaseAuth.instance;
-
   getIt
-    ..registerLazySingleton<FirebaseAuth>(() => authInit)
     ..registerLazySingleton<AuthRepository>(
         () => AuthRepositoryImpl(getIt<FirebaseAuth>()))
     ..registerLazySingleton<RegisterUsecase>(

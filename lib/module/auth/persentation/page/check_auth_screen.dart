@@ -11,14 +11,15 @@ class CheckAuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-          stream: getIt<FirebaseAuth>().authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Navigasi();
-            } else {
-              return AuthScreen();
-            }
-          }),
+        stream: getIt<FirebaseAuth>().authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Navigasi();
+          } else {
+            return AuthScreen();
+          }
+        },
+      ),
     );
   }
 }
